@@ -9,6 +9,8 @@ oci-curl nosql.eu-frankfurt-1.oci.oraclecloud.com get "/20190828/tables/ocid1.no
 oci-curl nosql.eu-frankfurt-1.oci.oraclecloud.com post ./request.json "/20190828/query?limit=8"  | jq
 ````
 
-- https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/node-on-ol/01oci-ol-node-summary.htm
+How to install node in OCI
 
+- https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/node-on-ol/01oci-ol-node-summary.htm
+- NB : see oracle-nodejs-ol7.repo if needed
 
