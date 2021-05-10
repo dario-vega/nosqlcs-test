@@ -1,0 +1,44 @@
+[ol7_developer_nodejs4]
+name=Oracle Linux $releasever Node.js 4 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer_nodejs4/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+
+[ol7_developer_nodejs6]
+name=Oracle Linux $releasever Node.js 6 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer_nodejs6/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+
+[ol7_developer_nodejs8]
+name=Oracle Linux $releasever Node.js 8 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer_nodejs8/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+
+[ol7_developer_nodejs10]
+name=Oracle Linux $releasever Node.js 10 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer_nodejs10/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+priority=20
+
+[ol7_developer_nodejs12]
+name=Oracle Linux $releasever Node.js 12 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer/nodejs12/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+priority=20
+
+[ol7_developer_nodejs14]
+name=Oracle Linux $releasever Node.js 14 Packages for Development and test ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/developer/nodejs14/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+priority=20
