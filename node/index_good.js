@@ -1,12 +1,3 @@
-var cluster = require('cluster');
-
-if (cluster.isMaster) {
-
-    let cpuCount = require('os').cpus().length;
-    for (var i = 0; i < cpuCount; i += 1) {
-    cluster.fork();
-}
-} else {
   var express = require('express');
   const NoSQLClient = require('oracle-nosqldb').NoSQLClient;
   const ServiceType = require('oracle-nosqldb').ServiceType;
@@ -15,7 +6,7 @@ if (cluster.isMaster) {
   var app = express();
 
   app.get('/', async function (req, resW) {
-    console.log('Here!' + cluster.worker.id);
+    console.log('Here!');
     let statement = `SELECT * FROM blogtable LIMIT 100`;
     const rows = [];
 
@@ -29,15 +20,15 @@ if (cluster.isMaster) {
       } while(res.continuationKey != null);
       resW.send(rows)
     } catch (err){
-        console.log('Err!' + cluster.worker.id);
+        console.log('Err!');
         console.log(err);
     } finally {
-        console.log('Finally!' + cluster.worker.id);
+        console.log('Finally!');
     }
   });
   app.listen(3000);
   client = createClient();    
-  console.log('Application running!' + cluster.worker.id);
+  console.log('Application running!');
 
 function createClient() {
     console.log('NoSQLClient!' + cluster.worker.id);
@@ -48,4 +39,3 @@ function createClient() {
 
 }
 
-}
