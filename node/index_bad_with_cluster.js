@@ -15,7 +15,6 @@ if (cluster.isMaster) {
   var app = express();
 
   app.get('/', async function (req, resW) {
-    console.log('Here!' + cluster.worker.id);
     let statement = `SELECT * FROM blogtable LIMIT 100`;
     const rows = [];
 
@@ -30,10 +29,8 @@ if (cluster.isMaster) {
       } while(res.continuationKey != null);
       resW.send(rows)
     } catch (err){
-        console.log('Err!' + cluster.worker.id);
         console.log(err);
     } finally {
-        console.log('Finally!' + cluster.worker.id);
         client.close()
     }
   });
@@ -41,7 +38,6 @@ if (cluster.isMaster) {
   console.log('Application running!' + cluster.worker.id);
 
 function createClient() {
-    console.log('NoSQLClient!' + cluster.worker.id);
   return new NoSQLClient({
             serviceType: ServiceType.KVSTORE,
             endpoint: 'localhost:80'
