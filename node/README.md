@@ -31,6 +31,7 @@ netstat -an | grep 80 | grep ESTA  | wc -l
 1. we will see errors at application level
 2. lot of open connections
 3. Only few request handled at ab level.
+4. An application hanging
 
 ````
 NoSQLTimeoutError: [REQUEST_TIMEOUT] Operation timed out after 5000 ms and 1 retries; Caused by: [NETWORK_ERROR] Network error; Caused by: socket hang up
