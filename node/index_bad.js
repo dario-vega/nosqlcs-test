@@ -34,3 +34,21 @@ if (cluster.isMaster) {
         console.log(err);
     } finally {
         console.log('Finally!' + cluster.worker.id);
+        client.close()
+    }
+  });
+  app.listen(3000);
+  console.log('Application running!' + cluster.worker.id);
+
+function createClient() {
+    console.log('NoSQLClient!' + cluster.worker.id);
+  return new NoSQLClient({
+            serviceType: ServiceType.KVSTORE,
+            endpoint: 'localhost:80'
+        });
+
+}
+
+
+}
+        
