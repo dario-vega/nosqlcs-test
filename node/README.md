@@ -1,30 +1,38 @@
+# Install
 ````
 git clone https://github.com/dario-vega/nosqlcs-test.git
+cd nosqlcs-test/node/
 npm install express
 npm install oracle-nosqldb
 ````
 
-In a new window - we will use the ab tool in order to simulate multiples concurrent users
+## Install ab tool in order to simulate multiples concurrent users
+
+Install and run the following test
+
 ````
 sudo yum install httpd-tools
 ab -c 500 -t 500  http://localhost:3000/
 ````
 
+## Monitor the number of connections
 In a new window - we will monitor the number of open connections between the driver and http proxy server (port 80)
 
+````
 netstat -an | grep 80 | grep ESTA  | wc -l
+````
 
-Run the 2 tests and compare
+# Run the 2 tests sequentially and compare
 
-node index_bad.js
-node index.js
+1) node index_bad.js
+2) node index_good.js
 
 ## During the first test, 
 1. we will see errors
 2. lot of open connections
 3. Only few request handled at ab level.
 
-
+````
   _cause: NoSQLNetworkError: [NETWORK_ERROR] Network error; Caused by: socket hang up
       at ClientRequest.<anonymous> (/home/opc/nosqlcs-test/node/node_modules/oracle-nosqldb/lib/http_client.js:111:42)
       at ClientRequest.emit (events.js:315:20)
@@ -41,8 +49,32 @@ node index.js
 
 apr_pollset_poll: The timeout specified has expired (70007)
 Total of 2508 requests completed
+````
 
 ## During the first test, 
 1. we will see NO errors
 2. a better management of the connections
-3. a system managing multiple concurrent queries.
+3. a system managing multiple concurrent queries. All requests will sucessfuly run!
+
+````
+[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+130
+[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+130
+[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+142
+
+Benchmarking localhost (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Completed 15000 requests
+Completed 20000 requests
+Completed 25000 requests
+Completed 30000 requests
+Completed 35000 requests
+Completed 40000 requests
+Completed 45000 requests
+Completed 50000 requests
+Finished 50000 requests
+  
+````
