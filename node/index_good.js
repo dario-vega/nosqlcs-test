@@ -6,7 +6,7 @@
   var app = express();
 
   app.get('/', async function (req, resW) {
-    let statement = `SELECT * FROM blogtable LIMIT 100`;
+    let statement = `SELECT * FROM blogtable`;
     const rows = [];
 
     try {
