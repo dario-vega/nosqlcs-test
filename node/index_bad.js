@@ -28,10 +28,10 @@
     }
   });
   app.listen(3000);
-  console.log('Application running!' + cluster.worker.id);
+  console.log('Application running!');
 
 function createClient() {
-    console.log('NoSQLClient!' + cluster.worker.id);
+    console.log('NoSQLClient!');
   return new NoSQLClient({
             serviceType: ServiceType.KVSTORE,
             endpoint: 'localhost:80'
