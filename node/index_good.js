@@ -6,7 +6,6 @@
   var app = express();
 
   app.get('/', async function (req, resW) {
-    console.log('Here!');
     let statement = `SELECT * FROM blogtable LIMIT 100`;
     const rows = [];
 
@@ -20,10 +19,8 @@
       } while(res.continuationKey != null);
       resW.send(rows)
     } catch (err){
-        console.log('Err!');
         console.log(err);
     } finally {
-        console.log('Finally!');
     }
   });
   app.listen(3000);
@@ -31,7 +28,6 @@
   console.log('Application running!');
 
 function createClient() {
-    console.log('NoSQLClient!' );
   return new NoSQLClient({
             serviceType: ServiceType.KVSTORE,
             endpoint: 'localhost:80'
