@@ -15,7 +15,6 @@ if (cluster.isMaster) {
   var app = express();
 
   app.get('/', async function (req, resW) {
-    console.log('Here!' + cluster.worker.id);
     let statement = `SELECT * FROM blogtable`;
     const rows = [];
 
