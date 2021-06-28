@@ -25,7 +25,7 @@ netstat -an | grep 80 | grep ESTA  | wc -l
 # Run the 2 tests sequentially and compare
 
 1) node index_bad.js (open/close the handle at each execution)
-2) node index_good.js (open only one time and sharing between query calls)
+2) node index_good.js (open only one time at the begining and sharing between query calls)
 
 ## During the first test, 
 1. we will see errors at application level
