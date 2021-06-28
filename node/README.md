@@ -51,7 +51,7 @@ apr_pollset_poll: The timeout specified has expired (70007)
 Total of 2508 requests completed
 ````
 
-## During the first test, 
+## During the second test, 
 1. we will see NO errors
 2. a better management of the connections
 3. a system managing multiple concurrent queries. All requests will sucessfuly run!
