@@ -28,17 +28,31 @@ netstat -an | grep 80 | grep ESTA  | wc -l
 2) node index_good.js (open only one time and sharing between query calls)
 
 ## During the first test, 
-1. we will see errors
+1. we will see errors at application level
 2. lot of open connections
 3. Only few request handled at ab level.
 
 ````
+NoSQLTimeoutError: [REQUEST_TIMEOUT] Operation timed out after 5000 ms and 1 retries; Caused by: [NETWORK_ERROR] Network error; Caused by: socket hang up
+    at cb (/home/opc/nosqlcs-test/node/node_modules/oracle-nosqldb/lib/http_client.js:167:33)
+    at ClientRequest.<anonymous> (/home/opc/nosqlcs-test/node/node_modules/oracle-nosqldb/lib/http_client.js:111:33)
+    at ClientRequest.emit (events.js:315:20)
+    at Socket.socketCloseListener (_http_client.js:443:11)
+    at Socket.emit (events.js:327:22)
+    at TCP.<anonymous> (net.js:673:12) {
+  _errCode: ErrorCode {
+    _ordinal: 100,
+    _desc: undefined,
+    _name: 'REQUEST_TIMEOUT',
+    retryable: true
+  },
   _cause: NoSQLNetworkError: [NETWORK_ERROR] Network error; Caused by: socket hang up
       at ClientRequest.<anonymous> (/home/opc/nosqlcs-test/node/node_modules/oracle-nosqldb/lib/http_client.js:111:42)
       at ClientRequest.emit (events.js:315:20)
       at Socket.socketCloseListener (_http_client.js:443:11)
       at Socket.emit (events.js:327:22)
       at TCP.<anonymous> (net.js:673:12) {
+
 
 [opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
 6201
