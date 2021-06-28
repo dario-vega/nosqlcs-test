@@ -36,6 +36,7 @@ if (cluster.isMaster) {
     }
   });
   app.listen(3000);
+  client = createClient();    
   console.log('Application running!' + cluster.worker.id);
 
 function createClient() {
