@@ -12,7 +12,7 @@ Install and run the following test
 
 ````
 sudo yum install httpd-tools
-ab -c 500 -t 500  http://localhost:3000/
+ab -c 500 -t 500 -r http://localhost:3000/
 ````
 
 ## Monitor the number of connections
@@ -20,6 +20,8 @@ In a new window - we will monitor the number of open connections between the dri
 
 ````
 netstat -an | grep 80 | grep ESTA  | wc -l
+netstat -nat | awk '{print $6}' | sort | uniq -c | sort -n
+netstat -antpl | grep 27624/java
 ````
 
 # Run the 2 tests sequentially and compare
