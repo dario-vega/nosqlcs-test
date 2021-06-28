@@ -27,7 +27,6 @@
   app.listen(3000);
 
 function createClient() {
-    console.log('NoSQLClient!');
   return new NoSQLClient({
             serviceType: ServiceType.KVSTORE,
             endpoint: 'localhost:80'
