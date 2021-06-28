@@ -5,8 +5,7 @@
   var app = express();
 
   app.get('/', async function (req, resW) {
-    console.log('Here!' );
-    let statement = `SELECT * FROM blogtable LIMIT 100`;
+    let statement = `SELECT * FROM blogtable`;
     const rows = [];
 
     client = createClient();
@@ -20,15 +19,12 @@
       } while(res.continuationKey != null);
       resW.send(rows)
     } catch (err){
-        console.log('Err!');
         console.log(err);
     } finally {
-        console.log('Finally!');
         client.close()
     }
   });
   app.listen(3000);
-  console.log('Application running!');
 
 function createClient() {
     console.log('NoSQLClient!');
