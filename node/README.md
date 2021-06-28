@@ -54,11 +54,11 @@ NoSQLTimeoutError: [REQUEST_TIMEOUT] Operation timed out after 5000 ms and 1 ret
       at TCP.<anonymous> (net.js:673:12) {
 
 
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$ netstat -antpl | grep ESTA  | wc -l
 6201
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$ netstat -antpl | grep 80 | grep ESTA  | wc -l
 7716
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$ netstat -antpl | grep 80 | grep ESTA  | wc -l
 8759
 
 apr_pollset_poll: The timeout specified has expired (70007)
@@ -71,11 +71,11 @@ Total of 2508 requests completed
 3. a system managing multiple concurrent queries. All requests will sucessfuly run!
 
 ````
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$  netstat -antpl | grep 80 | grep ESTA  | wc -l
 130
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$  netstat -antpl | grep 80 | grep ESTA  | wc -l
 130
-[opc@node1-nosql bo]$ netstat -an | grep 80 | grep ESTA  | wc -l
+[opc@node1-nosql bo]$  netstat -antpl | grep 80 | grep ESTA  | wc -l
 142
 
 Benchmarking localhost (be patient)
