@@ -20,6 +20,7 @@
       resW.send(rows)
     } catch (err){
         console.log(err);
+        resW.sendStatus(500)
     } finally {
     }
   });
