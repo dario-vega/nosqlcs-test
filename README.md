@@ -6,7 +6,7 @@
 
 ````
 cp oracle-nodejs-ol7.repo /etc/yum.repos.d/oracle-nodejs-ol7.repo
-sudo yum install node
+sudo yum install nodejs
 ````
 
 ## Instructions about this test
