@@ -9,18 +9,10 @@ cp oracle-nodejs-ol7.repo /etc/yum.repos.d/oracle-nodejs-ol7.repo
 sudo yum install node
 ````
 
-**More about this test in the following** [link](./node/README.md)
+Instructions in this [link](./node/README.md)
 
 
--
--
--
--
--
--
-
-
-## oci_curl.sh unitary tests
+oci_curl.sh unitary tests
 
 ````
 oci-curl nosql.eu-frankfurt-1.oci.oraclecloud.com get "/20190828/tables/ocid1.nosqltable.oc1.eu-frankfurt-1.amaaaaaafrpx4miaydomhbe4law5wvprhsy3vejy2klubc6nnlyggd3kmuka/rows?key=id:101"  | jq
